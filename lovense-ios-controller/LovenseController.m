@@ -196,6 +196,12 @@ didWriteValueForCharacteristic:(CBCharacteristic *)characteristic
 }
 
 - (void) setVibration:(int)level onComplete:(void(^)(BOOL, NSError*))callback {
+    if (level < 0) {
+        level = 0;
+    }
+    if (level > 20) {
+        level = 20;
+    }
     [self sendAckCommand:[NSString stringWithFormat:@"Vibrate:%i;", level] onComplete:callback];
 }
 

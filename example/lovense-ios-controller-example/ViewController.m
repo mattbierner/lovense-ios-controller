@@ -13,7 +13,7 @@
 
 @implementation ViewController
 
-- (void)viewDidLoad
+- (void) viewDidLoad
 {
     [super viewDidLoad];
     _discoveredPeripherals = [[NSMutableArray alloc] init];
@@ -21,6 +21,7 @@
    
    _vibratorControlViewController = [[VibratorControlViewController alloc] initWithNibName:@"VibratorControlViewController" bundle:nil];
 }
+
 
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
