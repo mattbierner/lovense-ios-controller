@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:LICENSE">
+   </FileRef>
+   <FileRef
+      location = "group:example/../README.md">
+   </FileRef>
+   <FileRef
+      location = "group:example/lovense-ios-controller-example.xcodeproj">
+   </FileRef>
+   <Group
+      location = "group:lovense-ios-controller"
+      name = "lovense-ios-controller">
+      <FileRef
+         location = "group:/Users/mattbierner/Projects/lovense-ios-controller/lovense-ios-controller/LovenseController.h">
+      </FileRef>
+      <FileRef
+         location = "group:/Users/mattbierner/Projects/lovense-ios-controller/lovense-ios-controller/LovenseController.m">
+      </FileRef>
+   </Group>
+</Workspace>

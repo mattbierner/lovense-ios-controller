@@ -1,0 +1,47 @@
+# Project Files #
+#################
+.project
+node_modules
+
+# OS Files #
+############
+.DS_Store*
+ehthumbs.db
+Icon?
+Thumbs.db
+
+# Temp Files #
+##############
+*~
+*.tmp*
+*.orig
+*.cache
+*.log
+
+
+# Jekyll #
+##########
+_site/
+
+
+.vscode
+.sass-cache
+
+# XCode #
+#########
+build/
+## Various settings
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+xcuserdata/
+
+## Other
+*.moved-aside
+*.xccheckout
+*.xcscmblueprint

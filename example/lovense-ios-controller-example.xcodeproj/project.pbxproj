@@ -1,0 +1,334 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8908AFBF1E18CE7E00A42562 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8908AFBE1E18CE7E00A42562 /* main.m */; };
+		8908AFC21E18CE7E00A42562 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8908AFC11E18CE7E00A42562 /* AppDelegate.m */; };
+		8908AFC51E18CE7E00A42562 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8908AFC41E18CE7E00A42562 /* ViewController.m */; };
+		8908AFC81E18CE7E00A42562 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8908AFC61E18CE7E00A42562 /* Main.storyboard */; };
+		8908AFCA1E18CE7E00A42562 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8908AFC91E18CE7E00A42562 /* Assets.xcassets */; };
+		8908AFCD1E18CE7E00A42562 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8908AFCB1E18CE7E00A42562 /* LaunchScreen.storyboard */; };
+		8908AFD61E18CEDC00A42562 /* LovenseController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8908AFD51E18CEDC00A42562 /* LovenseController.m */; };
+		8908AFDC1E18D89500A42562 /* VibratorControlViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8908AFDA1E18D89500A42562 /* VibratorControlViewController.m */; };
+		8908AFDD1E18D89500A42562 /* VibratorControlViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8908AFDB1E18D89500A42562 /* VibratorControlViewController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		8908AFBA1E18CE7E00A42562 /* lovense-ios-controller-example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "lovense-ios-controller-example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8908AFBE1E18CE7E00A42562 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		8908AFC01E18CE7E00A42562 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		8908AFC11E18CE7E00A42562 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		8908AFC31E18CE7E00A42562 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		8908AFC41E18CE7E00A42562 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		8908AFC71E18CE7E00A42562 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		8908AFC91E18CE7E00A42562 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8908AFCC1E18CE7E00A42562 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		8908AFCE1E18CE7E00A42562 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8908AFD41E18CEDC00A42562 /* LovenseController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LovenseController.h; path = "../../lovense-ios-controller/LovenseController.h"; sourceTree = "<group>"; };
+		8908AFD51E18CEDC00A42562 /* LovenseController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LovenseController.m; path = "../../lovense-ios-controller/LovenseController.m"; sourceTree = "<group>"; };
+		8908AFD91E18D89500A42562 /* VibratorControlViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VibratorControlViewController.h; sourceTree = "<group>"; };
+		8908AFDA1E18D89500A42562 /* VibratorControlViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VibratorControlViewController.m; sourceTree = "<group>"; };
+		8908AFDB1E18D89500A42562 /* VibratorControlViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VibratorControlViewController.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8908AFB71E18CE7E00A42562 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8908AFB11E18CE7E00A42562 = {
+			isa = PBXGroup;
+			children = (
+				8908AFBC1E18CE7E00A42562 /* lovense-ios-controller-example */,
+				8908AFBB1E18CE7E00A42562 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		8908AFBB1E18CE7E00A42562 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8908AFBA1E18CE7E00A42562 /* lovense-ios-controller-example.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8908AFBC1E18CE7E00A42562 /* lovense-ios-controller-example */ = {
+			isa = PBXGroup;
+			children = (
+				8908AFD41E18CEDC00A42562 /* LovenseController.h */,
+				8908AFD51E18CEDC00A42562 /* LovenseController.m */,
+				8908AFC01E18CE7E00A42562 /* AppDelegate.h */,
+				8908AFC11E18CE7E00A42562 /* AppDelegate.m */,
+				8908AFC31E18CE7E00A42562 /* ViewController.h */,
+				8908AFC41E18CE7E00A42562 /* ViewController.m */,
+				8908AFD91E18D89500A42562 /* VibratorControlViewController.h */,
+				8908AFDA1E18D89500A42562 /* VibratorControlViewController.m */,
+				8908AFDB1E18D89500A42562 /* VibratorControlViewController.xib */,
+				8908AFC61E18CE7E00A42562 /* Main.storyboard */,
+				8908AFC91E18CE7E00A42562 /* Assets.xcassets */,
+				8908AFCB1E18CE7E00A42562 /* LaunchScreen.storyboard */,
+				8908AFCE1E18CE7E00A42562 /* Info.plist */,
+				8908AFBD1E18CE7E00A42562 /* Supporting Files */,
+			);
+			path = "lovense-ios-controller-example";
+			sourceTree = "<group>";
+		};
+		8908AFBD1E18CE7E00A42562 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8908AFBE1E18CE7E00A42562 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8908AFB91E18CE7E00A42562 /* lovense-ios-controller-example */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8908AFD11E18CE7E00A42562 /* Build configuration list for PBXNativeTarget "lovense-ios-controller-example" */;
+			buildPhases = (
+				8908AFB61E18CE7E00A42562 /* Sources */,
+				8908AFB71E18CE7E00A42562 /* Frameworks */,
+				8908AFB81E18CE7E00A42562 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "lovense-ios-controller-example";
+			productName = "lovense-ios-controller-example";
+			productReference = 8908AFBA1E18CE7E00A42562 /* lovense-ios-controller-example.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8908AFB21E18CE7E00A42562 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = "Matt Bierner";
+				TargetAttributes = {
+					8908AFB91E18CE7E00A42562 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = JM8U5NPN89;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 8908AFB51E18CE7E00A42562 /* Build configuration list for PBXProject "lovense-ios-controller-example" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 8908AFB11E18CE7E00A42562;
+			productRefGroup = 8908AFBB1E18CE7E00A42562 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8908AFB91E18CE7E00A42562 /* lovense-ios-controller-example */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8908AFB81E18CE7E00A42562 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8908AFCD1E18CE7E00A42562 /* LaunchScreen.storyboard in Resources */,
+				8908AFDD1E18D89500A42562 /* VibratorControlViewController.xib in Resources */,
+				8908AFCA1E18CE7E00A42562 /* Assets.xcassets in Resources */,
+				8908AFC81E18CE7E00A42562 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8908AFB61E18CE7E00A42562 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8908AFD61E18CEDC00A42562 /* LovenseController.m in Sources */,
+				8908AFC51E18CE7E00A42562 /* ViewController.m in Sources */,
+				8908AFDC1E18D89500A42562 /* VibratorControlViewController.m in Sources */,
+				8908AFC21E18CE7E00A42562 /* AppDelegate.m in Sources */,
+				8908AFBF1E18CE7E00A42562 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		8908AFC61E18CE7E00A42562 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8908AFC71E18CE7E00A42562 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		8908AFCB1E18CE7E00A42562 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8908AFCC1E18CE7E00A42562 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		8908AFCF1E18CE7E00A42562 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		8908AFD01E18CE7E00A42562 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8908AFD21E18CE7E00A42562 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = JM8U5NPN89;
+				INFOPLIST_FILE = "lovense-ios-controller-example/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "mattbierner.lovense-ios-controller-example";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		8908AFD31E18CE7E00A42562 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = JM8U5NPN89;
+				INFOPLIST_FILE = "lovense-ios-controller-example/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "mattbierner.lovense-ios-controller-example";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8908AFB51E18CE7E00A42562 /* Build configuration list for PBXProject "lovense-ios-controller-example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8908AFCF1E18CE7E00A42562 /* Debug */,
+				8908AFD01E18CE7E00A42562 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8908AFD11E18CE7E00A42562 /* Build configuration list for PBXNativeTarget "lovense-ios-controller-example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8908AFD21E18CE7E00A42562 /* Debug */,
+				8908AFD31E18CE7E00A42562 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8908AFB21E18CE7E00A42562 /* Project object */;
+}
