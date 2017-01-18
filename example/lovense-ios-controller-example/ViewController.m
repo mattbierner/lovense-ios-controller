@@ -99,7 +99,7 @@
     _discoveredPeripherals = [[NSMutableArray alloc] init];
     [self.tableView reloadData];
 
-    [_manager scanForPeripheralsWithServices:nil/*@[[LovenseVibratorController serviceUUID]]*/ options:nil];
+    [_manager scanForPeripheralsWithServices:nil options:nil];
 }
 
 
@@ -131,10 +131,15 @@
     [self.tableView reloadData];
 }
 
-- (void)centralManager:(CBCentralManager *)central
+- (void) centralManager:(CBCentralManager *)central
     didConnectPeripheral:(CBPeripheral *)peripheral
 {
-    void(^postInit)(LovenseBaseController*) = ^(LovenseBaseController* device) {
+    void(^postInit)(LovenseBaseController*, NSError*) = ^(LovenseBaseController* device, NSError* err) {
+        if (err) {
+            NSLog(@"Error creating setting up device: %@", err);
+            return;
+        }
+        
         _vibratorControlViewController.vibrator = device;
 
         [device getBattery:^(NSNumber* result, NSError* err) {
@@ -150,11 +155,11 @@
         [[LovenseVibratorController hushPeripheralName] isEqualToString:peripheral.name])
     {
         [LovenseVibratorController createWithPeripheral:peripheral onReady:^(LovenseVibratorController* device, NSError* err) {
-            postInit(device);
+            postInit(device, err);
         }];
     } else if ([[LovenseMaxController maxPeripheralName] isEqualToString:peripheral.name]) {
         [LovenseMaxController createWithPeripheral:peripheral onReady:^(LovenseMaxController* device, NSError* err) {
-            postInit(device);
+            postInit(device, err);
         }];
     } else {
         NSLog(@"Error! Unknown device type");

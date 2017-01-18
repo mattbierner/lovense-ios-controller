@@ -317,3 +317,40 @@ didWriteValueForCharacteristic:(CBCharacteristic *)characteristic
 }
 
 @end
+
+
+@implementation LovenseNoraController
+
++ (CBUUID*) serviceUUID {
+    return [CBUUID UUIDWithString:@"FFF0"];
+}
+
++ (CBUUID*) transmitCharacteristicUUID {
+    return [CBUUID UUIDWithString:@"FFF2"];
+}
+
++ (CBUUID*) receiveCharacteristicUUID {
+    return [CBUUID UUIDWithString:@"FFF1"];
+}
+
+
++ (void) createWithPeripheral:(CBPeripheral*)peripheral onReady:(void(^)(LovenseNoraController*, NSError*))ready {
+    LovenseNoraController* nora = [LovenseNoraController alloc];
+    (void)[nora initWithPeripheral:peripheral
+        service:LovenseNoraController.serviceUUID
+        transmitCharacteristic:LovenseNoraController.transmitCharacteristicUUID
+        receiveCharacteristic:LovenseNoraController.receiveCharacteristicUUID
+        onReady:^(LovenseBaseController* _, NSError *err) {
+            ready(err ? nil : nora, err);
+        }];
+}
+
+
+- (void) setRotation:(unsigned)level
+    onComplete:(void(^)(BOOL, NSError*))callback
+{
+    [self sendAckCommand:[NSString stringWithFormat:@"Rotate:%i;", MIN(level, 20)] onComplete:callback];
+}
+
+@end
+

@@ -5,7 +5,7 @@ Small Objective-C library for controlling Lovense sex toys (*Lush*, *Hush*, *Nor
 ## Usage
 To get started, simply include `LovenseController.h` and `LovenseController.m` in your project.
 
-The library use [Core Bluetooth](https://developer.apple.com/library/content/documentation/NetworkingInternetWeb/Conceptual/CoreBluetooth_concepts/AboutCoreBluetooth/Introduction.html) for communicating with the toys. To connect a toy, start by scanning for devices:
+The library use [Core Bluetooth](https://developer.apple.com/library/content/documentation/NetworkingInternetWeb/Conceptual/CoreBluetooth_concepts/AboutCoreBluetooth/Introduction.html) for communicating with the toys. To connect a *Hush* or *Lush* for example, start by scanning for devices:
 
 ```obj-c
 #import "LovenseController.h"
@@ -14,17 +14,21 @@ The library use [Core Bluetooth](https://developer.apple.com/library/content/doc
 
 CBCentralManager* blueToothManager = ...;
 
-[blueToothManager scanForPeripheralsWithServices:@[[LovenseVibratorController serviceUUID]] options:nil];
+[blueToothManager scanForPeripheralsWithServices:@[LovenseVibratorController.serviceUUID] options:nil];
 ```
 
-After connecting to the discovered toy using Core Bluetooth, create a `LovenseVibratorController` from the `CBPeripheral` to start using it:
+After connecting to the discovered vibrator using Core Bluetooth, create a `LovenseVibratorController` from the `CBPeripheral` to start using it:
 
 ```obj-c
 - (void) centralManager:(CBCentralManager *)central
     didConnectPeripheral:(CBPeripheral *)peripheral
 {
     // Create a controller for a lush or hush device
-    [LovenseVibratorController createWithPeripheral:peripheral onReady:^(LovenseVibratorController* toy) {
+    [LovenseVibratorController createWithPeripheral:peripheral onReady:^(LovenseVibratorController* toy, NSError* err) {
+        if (err) {
+            NSLog(@"Error: %@", err);
+            return;
+        }
 
         // Get the battery level
         [toy getBattery:^(NSNumber* result, NSError* err) {
@@ -41,14 +45,14 @@ After connecting to the discovered toy using Core Bluetooth, create a `LovenseVi
 ```
 
 # Example App
-A very basic example iOS application is included in `example/`. This app shows how to use basic Core Bluetooth to connect to a *Lush* or *Hush* toy and control its vibration.
+A very basic example iOS application is included in `example/`. This app shows how to use basic Core Bluetooth to connect to a *Lush* or *Hush* or *Max* toy and control vibration. 
 
 
 ## Limitations
 This library is a prototype and not production ready. 
 
-* Currently only supports the *Lush* and *Hush* toys. The *Max* and *Nora* toys should work, but this library does not define a nice API for them. If you have either and can help test, please let me know.
-* Unsupported/invalid commands are not handled very well.
+* Untested on the *Nora*. I guessed that it works like the Max, but cannot verify this. If you a *Nora* can help test, please let me know or submit a PR with any fixes.
+* Unsupported/invalid commands are not handled well.
 * Needs more testing around error cases.
 * Needs more testing for threading and potential communication interleaving issues.
 * The example app is super basic and buggy.

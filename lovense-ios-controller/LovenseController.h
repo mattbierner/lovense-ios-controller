@@ -81,7 +81,7 @@ typedef void(^LovenseCallback)(NSString*, NSError*);
 /**
     Interfaces with Lovense Lush/Hush toys.
 */
-@interface LovenseVibratorController : LovenseBaseController <CBPeripheralDelegate>
+@interface LovenseVibratorController : LovenseBaseController
 
 + (CBUUID*) serviceUUID;
 + (CBUUID*) transmitCharacteristicUUID;
@@ -104,7 +104,7 @@ typedef void(^LovenseCallback)(NSString*, NSError*);
 /**
     Interfaces with Lovense Max toys.
 */
-@interface LovenseMaxController : LovenseBaseController <CBPeripheralDelegate>
+@interface LovenseMaxController : LovenseBaseController
 
 + (CBUUID*) serviceUUID;
 + (CBUUID*) transmitCharacteristicUUID;
@@ -143,6 +143,36 @@ typedef void(^LovenseCallback)(NSString*, NSError*);
     Returns boolean indicating success
 */
 - (void) airOut:(unsigned)change
+    onComplete:(void(^)(BOOL, NSError*))callback;
+
+@end
+
+
+/**
+    Interfaces with Lovense Nora toys.
+    
+    TODO: Unverified. Implementation is best guess based on the max
+*/
+@interface LovenseNoraController : LovenseBaseController
+
++ (CBUUID*) serviceUUID;
++ (CBUUID*) transmitCharacteristicUUID;
++ (CBUUID*) receiveCharacteristicUUID;
+
+/**
+    Create a new Nora controller.
+    
+    Invokes `ready` with the resulting controller once everything is initialized.
+*/
++ (void) createWithPeripheral:(CBPeripheral*)peripheral
+    onReady:(void(^)(LovenseNoraController*, NSError*))ready;
+
+/**
+    Set the rotation speed.
+    
+    Returns boolean indicating success
+*/
+- (void) setRotation:(unsigned)level
     onComplete:(void(^)(BOOL, NSError*))callback;
 
 @end
