@@ -52,6 +52,7 @@ A very basic example iOS application is included in `example/`. This app shows h
 This library is a prototype and not production ready. 
 
 * Untested on the *Nora*. I guessed that it works like the Max, but cannot verify this. If you a *Nora* can help test, please let me know or submit a PR with any fixes.
+* No interfaces for reading accelerometer data.
 * Unsupported/invalid commands are not handled well.
 * Needs more testing around error cases.
 * Needs more testing for threading and potential communication interleaving issues.
