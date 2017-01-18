@@ -77,16 +77,19 @@
     if (!peripheral.name)
         return NO;
     
-    return [peripheral.name isEqualToString:[LovenseBaseController lushPeripheralName]]
-        || [peripheral.name isEqualToString:[LovenseBaseController hushPeripheralName]];
+    return [peripheral.name isEqualToString:[LovenseVibratorController lushPeripheralName]]
+        || [peripheral.name isEqualToString:[LovenseVibratorController hushPeripheralName]]
+        || [peripheral.name isEqualToString:[LovenseMaxController maxPeripheralName]];
 }
 
 
 - (NSString*) displayNameForPeripheral:(CBPeripheral*)peripheral {
-    if ([[LovenseBaseController lushPeripheralName] isEqualToString:peripheral.name]) {
+    if ([[LovenseVibratorController lushPeripheralName] isEqualToString:peripheral.name]) {
         return @"Lush";
-    } else if ([[LovenseBaseController hushPeripheralName] isEqualToString:peripheral.name]) {
+    } else if ([[LovenseVibratorController hushPeripheralName] isEqualToString:peripheral.name]) {
         return @"Hush";
+    } else if ([[LovenseMaxController maxPeripheralName] isEqualToString:peripheral.name]) {
+        return @"Max";
     }
     return @"Unknown";
 }
@@ -96,7 +99,7 @@
     _discoveredPeripherals = [[NSMutableArray alloc] init];
     [self.tableView reloadData];
 
-    [_manager scanForPeripheralsWithServices:@[[LovenseVibratorController serviceUUID]] options:nil];
+    [_manager scanForPeripheralsWithServices:nil/*@[[LovenseVibratorController serviceUUID]]*/ options:nil];
 }
 
 
@@ -131,7 +134,7 @@
 - (void)centralManager:(CBCentralManager *)central
     didConnectPeripheral:(CBPeripheral *)peripheral
 {
-    [LovenseVibratorController createWithPeripheral:peripheral onReady:^(LovenseVibratorController* device) {
+    void(^postInit)(LovenseBaseController*) = ^(LovenseBaseController* device) {
         _vibratorControlViewController.vibrator = device;
 
         [device getBattery:^(NSNumber* result, NSError* err) {
@@ -141,7 +144,21 @@
         [device getDeviceType:^(NSString* result, NSError* err) {
             NSLog(@"Type: %@", result);
         }];
-    }];
+    };
+
+    if ([[LovenseVibratorController lushPeripheralName] isEqualToString:peripheral.name] ||
+        [[LovenseVibratorController hushPeripheralName] isEqualToString:peripheral.name])
+    {
+        [LovenseVibratorController createWithPeripheral:peripheral onReady:^(LovenseVibratorController* device, NSError* err) {
+            postInit(device);
+        }];
+    } else if ([[LovenseMaxController maxPeripheralName] isEqualToString:peripheral.name]) {
+        [LovenseMaxController createWithPeripheral:peripheral onReady:^(LovenseMaxController* device, NSError* err) {
+            postInit(device);
+        }];
+    } else {
+        NSLog(@"Error! Unknown device type");
+    }
 }
 
 

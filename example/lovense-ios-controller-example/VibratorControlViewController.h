@@ -7,7 +7,7 @@
 }
 
 @property (nonatomic, retain) IBOutlet UISlider* slider;
-@property (nonatomic, retain) LovenseVibratorController* vibrator;
+@property (nonatomic, retain) LovenseBaseController* vibrator;
 @property (nonatomic) int vibrationStrength;
 
 - (IBAction) sliderValueChange:(id)sender;

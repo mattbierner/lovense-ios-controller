@@ -13,24 +13,23 @@ typedef void(^LovenseCallback)(NSString*, NSError*);
 */
 @interface LovenseBaseController : NSObject <CBPeripheralDelegate>
 {
-    CBPeripheral* _peripheral;
     CBCharacteristic* _commandCharacteristic;
     CBCharacteristic* _resultCharacteristic;
-    void(^_onReady)(LovenseBaseController*);
+    void(^_onReady)(LovenseBaseController*, NSError*);
     
-    LovenseCallback _currentCallback;
     NSMutableArray* _queue;
+    BOOL _busy;
 }
+@property (nonatomic, readonly) CBPeripheral* peripheral;
+@property (nonatomic, readonly) CBUUID* serviceUUID;
+@property (nonatomic, readonly) CBUUID* transmitCharacteristicUUID;
+@property (nonatomic, readonly) CBUUID* receiveCharacteristicUUID;
 
-+ (CBUUID*) serviceUUID;
-+ (CBUUID*) transmitCharacteristicUUID;
-+ (CBUUID*) receiveCharacteristicUUID;
-
-+ (NSString*) lushPeripheralName;
-+ (NSString*) hushPeripheralName;
-
-- (id) initWithPeripheral:(CBPeripheral*)peripheral
-    onReady:(void(^)(LovenseBaseController*))ready;
+- (LovenseBaseController*) initWithPeripheral:(CBPeripheral*) peripheral
+    service:(CBUUID*)serviceUUID
+    transmitCharacteristic:(CBUUID*)transmitCharacteristicUUID
+    receiveCharacteristic:(CBUUID*)receiveCharacteristicUUID
+    onReady:(void(^)(LovenseBaseController*, NSError*))ready;
 
 /**
     Send a raw command to the device.
@@ -68,13 +67,28 @@ typedef void(^LovenseCallback)(NSString*, NSError*);
 */
 - (void) powerOff:(void(^)(BOOL, NSError*))callback;
 
+/**
+    Set the vibration strength.
+    
+    Returns boolean indicating success
+*/
+- (void) setVibration:(unsigned)level
+    onComplete:(void(^)(BOOL, NSError*))callback;
+
 @end
 
 
 /**
-    Interfaces with Lovense Lush/Hush devices.
+    Interfaces with Lovense Lush/Hush toys.
 */
-@interface LovenseVibratorController : LovenseBaseController
+@interface LovenseVibratorController : LovenseBaseController <CBPeripheralDelegate>
+
++ (CBUUID*) serviceUUID;
++ (CBUUID*) transmitCharacteristicUUID;
++ (CBUUID*) receiveCharacteristicUUID;
+
++ (NSString*) lushPeripheralName;
++ (NSString*) hushPeripheralName;
 
 /**
     Create a new vibrator controller.
@@ -82,14 +96,53 @@ typedef void(^LovenseCallback)(NSString*, NSError*);
     Invokes `ready` with the resulting controller once everything is initialized.
 */
 + (void) createWithPeripheral:(CBPeripheral*)peripheral
-    onReady:(void(^)(LovenseVibratorController*))ready;
+    onReady:(void(^)(LovenseVibratorController*, NSError*))ready;
+
+@end
+
 
 /**
-    Set the vibration strength.
+    Interfaces with Lovense Max toys.
+*/
+@interface LovenseMaxController : LovenseBaseController <CBPeripheralDelegate>
+
++ (CBUUID*) serviceUUID;
++ (CBUUID*) transmitCharacteristicUUID;
++ (CBUUID*) receiveCharacteristicUUID;
+
++ (NSString*) maxPeripheralName;
+
+/**
+    Create a new Max controller.
+    
+    Invokes `ready` with the resulting controller once everything is initialized.
+*/
++ (void) createWithPeripheral:(CBPeripheral*)peripheral
+    onReady:(void(^)(LovenseMaxController*, NSError*))ready;
+
+/**
+    Set the absolute air level.
     
     Returns boolean indicating success
 */
-- (void) setVibration:(int)level
+- (void) setAirLevel:(unsigned)level
+    onComplete:(void(^)(BOOL, NSError*))callback;
+
+/**
+    Increases air from the current level.
+    
+    Returns boolean indicating success
+*/
+- (void) airIn:(unsigned)change
+    onComplete:(void(^)(BOOL, NSError*))callback;
+
+
+/**
+    Decreases air from the current level.
+ 
+    Returns boolean indicating success
+*/
+- (void) airOut:(unsigned)change
     onComplete:(void(^)(BOOL, NSError*))callback;
 
 @end

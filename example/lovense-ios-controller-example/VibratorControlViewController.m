@@ -29,11 +29,21 @@
     
     __weak typeof(self) weakSelf = self;
     _isUpdatingVibration = YES;
+    
+#ifdef DEBUG_UPDATE_TIME
+    CFTimeInterval startTime = CACurrentMediaTime();
+#endif
+
     [self.vibrator setVibration:strength onComplete:^(BOOL ok, NSError* error) {
         _isUpdatingVibration = NO;
         if (strength != weakSelf.vibrationStrength) {
             [weakSelf setVibration:weakSelf.vibrationStrength];
         }
+
+#ifdef DEBUG_UPDATE_TIME
+        CFTimeInterval elapsedTime = CACurrentMediaTime() - startTime;
+        NSLog(@"elapse %f", elapsedTime);
+#endif
     }];
 }
 
